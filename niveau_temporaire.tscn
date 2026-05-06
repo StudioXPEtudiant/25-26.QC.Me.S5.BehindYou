@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://css4jmm167nlq"]
+
+[ext_resource type="PackedScene" uid="uid://x83mp06o8yap" path="res://player_01.tscn" id="1_yjssc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0jvh3"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6jwf0"]
+
+[node name="NiveauTemporaire" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CylinderShape3D_0jvh3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+transform = Transform3D(10, 0, 0, 0, 0.43638897, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6jwf0")
+
+[node name="Player01" parent="StaticBody3D/CollisionShape3D" instance=ExtResource("1_yjssc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6990826, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8821104, 0.4710427, 0, -0.4710427, 0.8821104, -0.28943253, 4.055763, 7.161592)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.22513811, 0.97432685, 0, -0.97432685, 0.22513811, -4.953977, 0, 1.8425765)

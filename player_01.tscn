@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://x83mp06o8yap"]
+
+[ext_resource type="Script" uid="uid://cnvvummhiw4do" path="res://MainPlayerScript.gd" id="1_oqouq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vtffy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtffy"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oqouq"]
+
+[node name="Player01" type="Node3D"]
+
+[node name="player01" type="RigidBody3D" parent="."]
+mass = 80.0
+physics_material_override = SubResource("PhysicsMaterial_vtffy")
+script = ExtResource("1_oqouq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player01"]
+shape = SubResource("CapsuleShape3D_vtffy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player01"]
+mesh = SubResource("CapsuleMesh_oqouq")
