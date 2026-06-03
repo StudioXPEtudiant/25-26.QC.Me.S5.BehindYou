@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccwskgj37yn4g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0lnkx"]
+size = Vector3(1, 0.01, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hmhkb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e6wgt"]
+size = Vector3(0.043945313, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rhxxa"]
+size = Vector3(0.5, 0.01, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ooprb"]
+size = Vector3(1, 0.01, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rhxxa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p443f"]
+size = Vector3(1, 0.047851563, 1)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.85802907, 0, 0.5136012, 0, 1, 0, -0.5136012, 0, 0.85802907, 0, 0, 0)
+
+[node name="grand mur" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.0000013, 0, 0, 0, -4.3711402e-08, -0.9999999, 0, 1.0000004, -4.3711385e-08, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_0lnkx")
+skeleton = NodePath("../petit mur")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="grand mur"]
+physics_material_override = SubResource("PhysicsMaterial_hmhkb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grand mur/StaticBody3D"]
+transform = Transform3D(-0.003905736, -0.99987334, 0.015405891, 0.99991214, -0.004099585, -0.012572544, 0.012634114, 0.015355442, 0.99980205, 0.0024414212, -4.4703484e-08, 1.7881393e-07)
+shape = SubResource("BoxShape3D_e6wgt")
+
+[node name="petit mur" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.0000006, 0, 0, 0, -4.37114e-08, -1, 0, 1.0000002, -4.371139e-08, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_rhxxa")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="petit mur"]
+physics_material_override = SubResource("PhysicsMaterial_hmhkb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="petit mur/StaticBody3D"]
+transform = Transform3D(0.0062207505, 0.99995387, 0.007278889, -0.9995543, 0.0060054436, 0.02923759, 0.02919254, -0.0074575054, 0.99954605, 0.002441585, 0, 1.1920929e-07)
+shape = SubResource("BoxShape3D_e6wgt")
+
+[node name="sols" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.0000002, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000002, 0, 0, 0)
+mesh = SubResource("BoxMesh_ooprb")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sols"]
+physics_material_override = SubResource("PhysicsMaterial_rhxxa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sols/StaticBody3D"]
+transform = Transform3D(0.9999942, 0, 2.5331974e-07, 0, 1, 0, -2.5331974e-07, 0, 0.9999942, 0, -0.010253906, 0)
+shape = SubResource("BoxShape3D_p443f")
