@@ -33,7 +33,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-			velocity.y = jump_velocity + speed
+			velocity.y = jump_velocity
 	#if not is_on_floor():
 		#velocity.y -= 9* _delta
 
